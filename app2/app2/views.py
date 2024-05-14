@@ -14,21 +14,29 @@ class RestaurantListCreateAPIView(generics.ListCreateAPIView):
 
 
 class MenuListCreateAPIView(generics.ListCreateAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
 
 class MenuRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
 
 class MenuItemListCreateAPIView(generics.ListCreateAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
 
 class MenuItemRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
 
@@ -39,11 +47,15 @@ class EmployeeListCreateAPIView(generics.ListCreateAPIView):
 
 
 class EmployeeRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
 
 class CurrentDayMenuAPIView(generics.ListAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = MenuSerializer
 
     def get_queryset(self):
@@ -52,6 +64,8 @@ class CurrentDayMenuAPIView(generics.ListAPIView):
 
 
 class CurrentDayMenuItemAPIView(generics.ListAPIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = MenuItemSerializer
 
     def get_queryset(self):
